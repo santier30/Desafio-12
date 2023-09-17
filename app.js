@@ -107,7 +107,8 @@ async function postHandler(event){
 
 function deleteHandler(id){
     data=""
-    fetch(`https://contactos-cfb7b-default-rtdb.firebaseio.com/Contactos/${id}.json`,{method: 'DELETE'}).then(()=>fetchHandler())
+    fetch(`https://contactos-cfb7b-default-rtdb.firebaseio.com/Contactos/${id}.json`,{method: 'DELETE'})
+    .then(()=>fetchHandler()).catch(e=>console.log(e))
 }
 function editHandler(event){
     event.preventDefault()
@@ -119,7 +120,7 @@ function editHandler(event){
             email:emailEdit.value,
             age: ageEdit.value
     
-        })}).then(()=>fetchHandler())
+        })}).then(()=>fetchHandler()).catch(e=>console.log(e))
     }
 
 }
