@@ -3,6 +3,15 @@
 span{
     height: fit-content;
     align-self: center;
+    display: none;
 }
-h2{flex: 1;}
+h2{flex: 1;
+font-size: 1.3rem;}
+#search-autocomplete{width: 70%!important;}
+@media screen and (min-width: 350px) {
 #search-autocomplete{width: 50%!important;}
+  }
+  @media screen and (min-width: 1000px) {
+    span{display: block;}
+    h2{font-size: 2rem;}
+      }

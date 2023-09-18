@@ -11,6 +11,11 @@ const emailEdit = document.getElementById('EmailEdit');
 const ageEdit = document.getElementById('AgeEdit');
 const contactEdit = document.getElementById('Edit');
 
+const nameEdit2 = document.getElementById('nameEdit2');
+const numberEdit2 = document.getElementById('numberEdit2');
+const emailEdit2 = document.getElementById('EmailEdit2');
+const ageEdit2 = document.getElementById('AgeEdit2');
+
 const newButton = document.getElementById('New');
 const cancel = document.getElementById('cancel');
 const searchInput = document.getElementById('form1');
@@ -25,6 +30,10 @@ function editModalHandler(mark){
     numberEdit.value=data[mark].number;
     ageEdit.value=data[mark].age;
     emailEdit.value=data[mark].email;
+    nameEdit2.value=data[mark].name;
+    numberEdit2.value=data[mark].number;
+    ageEdit2.value=data[mark].age;
+    emailEdit2.value=data[mark].email;
     editId=data[mark].id;
 }
 
@@ -46,24 +55,30 @@ function createArticleHandler(data,mark){
         last = data.name[0].toUpperCase();
         return`
         <h2 class="text-white">${data.name[0].toUpperCase()}</h2>
-        <article class="bg-light p-2 d-flex justify-content-between text-white rounded">
-        <h2>${data.name}</h2>
+        <article class="bg-light p-2 d-flex justify-content-between text-white  rounded ">
+        <h2 role="button" data-bs-toggle="modal" data-bs-target="#showPhone" onClick="editModalHandler('${mark}')">${data.name}</h2>
         <span class="p-2">${data.number}</span>
         <span class="p-2">${data.age?data.age:''}</span>
         <span class="p-2">${data.email?data.email:''}</span>
+        <div class="d-flex justify-content-center">
         <button type="button" class="btn btn-warning text-white me-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onClick="editModalHandler('${mark}')">Editar</button>
         <button class="btn btn-warning text-white" onClick="deleteHandler('${data.id}')">Borrar</button>
+        </div>
+
         </article>
         `
     }else{
         return`
-        <article class="bg-light p-2 d-flex justify-content-between text-white rounded">
-        <h2>${data.name}</h2>
+        <article class="bg-light p-2 d-flex justify-content-between text-white  rounded ">
+        <h2 role="button" data-bs-toggle="modal" data-bs-target="#showPhone" onClick="editModalHandler('${mark}')">${data.name}</h2>
         <span class="p-2">${data.number}</span>
         <span class="p-2">${data.age?data.age:''}</span>
         <span class="p-2">${data.email?data.email:''}</span>
+        <div class="d-flex justify-content-center">
         <button type="button" class="btn btn-warning text-white me-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onClick="editModalHandler('${mark}')">Editar</button>
         <button class="btn btn-warning text-white" onClick="deleteHandler('${data.id}')">Borrar</button>
+        </div>
+
         </article>
         `
     }
